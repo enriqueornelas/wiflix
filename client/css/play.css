@@ -58,13 +58,3 @@ hr {
 h1 {
 	word-wrap: break-word;
 }
-#mobile-overlay {
-	height: 100%;
-	width: 100%;
-	position: absolute;
-	z-index: 1000;
-	left: 0;
-	top: 0;
-	background: transparent;
-	display: none;
-}
