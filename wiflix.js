@@ -1,7 +1,7 @@
 var fs = require("fs");
 var path = require("path");
-if(!fs.existsSync("./movies")) {
-	fs.mkdir("./movies");
+if(!fs.existsSync(path.join("./", "movies"))) {
+	fs.mkdirSync(path.join("./", "movies"));
 }
 var ip = require("ip");
 var express = require("express");
