@@ -1,0 +1,95 @@
+body, html {
+	height: auto;
+	height: 100%;
+	back
+}
+html {
+	background-repeat: repeat-none;
+	height: 100%;
+	/*	background-image: radial-gradient(circle, #06152c, #001622, #001315, #000e07, #050604); */
+	background: #000d1a;
+	
+}
+body {
+	color: #fff;
+	font-family: 'Quicksand', sans-serif;
+	background: transparent;
+	
+}
+.half-height {
+	height: 50% !important;
+}
+.full-screen {
+	width: 100%;
+	min-height: 100%;
+	margin: 0;
+}
+.table-display {
+	display: table;
+}
+.middle-table {
+	display: table-cell;
+	vertical-align: middle;
+}
+.hidden {
+	display: none;
+}
+.no-opacity {
+	opacity: 0;
+}
+.middle {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+	margin: auto;
+	width: 100%;
+	height: 100%;
+}
+.movie-cell {
+	height: 100px;
+	display: table;
+	margin: 4px 0;
+}
+
+.movie {
+	border: 1px solid rgba(255, 255, 255, 0.6);
+	text-align: center;
+	padding: 25px 10px;
+	font-size: 20px;
+	width: 95%;
+	height: 95%;
+	margin: auto;
+	display: table-cell;
+	vertical-align: middle;
+	cursor: pointer;
+}
+.movie:hover {
+	font-size: 28px;
+	border:1px solid rgba(255, 255, 255, 0.3);
+}
+@media (min-width: 768px) {
+    .movie-cell {
+        margin: 15px 0;
+	}
+}
+::-webkit-scrollbar
+{
+ 	width: 4px;
+ 	background-color: black;
+}
+
+::-webkit-scrollbar-thumb
+{
+ 	background-color: white;
+}
+.movie-animation {
+	transition: all .3s ease-in;
+}
+.hide-overflow {
+	overflow: hidden;
+}
+.no-opac {
+	opacity: 0;
+}

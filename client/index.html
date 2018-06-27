@@ -1,0 +1,36 @@
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="client/css/bootstrap.min.css" rel="stylesheet">
+		<link href="client/css/index.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+			<div class="row full-height hidden">
+				<div class="col-lg-12 text-center">
+					<h1 class="mt-5">Wiflix</h1>
+					<ul class="list-unstyled">
+					</ul>
+				</div>
+			</div>
+			<div class="row full-screen" id="top-holder">
+				<div class="col-lg-12 half-height text-center middle">
+					<h1 class="mt-5 display-3" style="display: none" id="title">Wiflix</h1>
+					<h4><span id="sub-title-1" style="display: none">Your movies</span><span id="sub-title-2" style="display: none">, streamed your way</span></h4>
+				</div>
+			</div>
+			<div class="row hidden" id="movies-holder" style="padding-top: 25px">
+					{% for movie in movies %}
+						<div class="col-md-4 movie-cell" data-movie-id="{{ movie.id }}">
+							<div class="movie">{{ movie.name }}</div>
+						</div>
+					{% endfor %}
+			
+			</div>
+		</div>
+	</body>
+	<script src="client/js/jquery.min.js"></script>
+	<script src="client/js/bootstrap.bundle.min.js"></script>
+	<script src="client/js/index.js"></script>
+</html>		

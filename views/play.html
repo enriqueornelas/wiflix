@@ -1,0 +1,27 @@
+<html>
+	<head>
+		<title>{{ movie.name }} | Wiflix </title>
+		<meta name="viewport" content="width=device-width">
+		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+		<link href="../client/css/bootstrap.min.css" rel="stylesheet">
+		<link href="../client/css/play.css" rel="stylesheet">
+	</head>
+	<body>
+		<div class="container">
+		
+			<div class="row full-screen" id="overlay">
+				<div class="col-lg-12 half-height text-center middle">
+					<h1 class="display-3 hidden" id="movie-name">Now Playing<br><hr>{{ movie.name }}</h1>
+				</div>
+				</div>
+			<div class="row full-screen hidden" id="main-section">
+				<div class="col-lg-12 half-height text-center middle">
+					<video id="movie" controls controlsList="nodownload noremote" src="../movie/{{ movie.id }}"></video>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script src="../client/js/jquery.min.js"></script>
+	<script src="../client/js/bootstrap.bundle.min.js"></script>
+	<script src="../client/js/play.js"></script>
+</html>		
