@@ -50,13 +50,6 @@ video {
 	bottom: 0;
 	margin: auto;
 }
-video::-webkit-media-controls-panel {
-	background: rgba(255, 255, 255, 0.9);
-	transition: all .13s ease-in;
-}
-video::-webkit-media-controls-panel:hover {
-	background: rgba(255, 255, 255, 1);
-}
 hr {
 	border-top: 4px solid white;
     max-width: 38%;

@@ -1,5 +1,8 @@
-var fs = require("fs"); 
+var fs = require("fs");
 var path = require("path");
+if(!fs.existsSync("./movies")) {
+	fs.mkdir("./movies");
+}
 var ip = require("ip");
 var express = require("express");
 var shortid = require("shortid");
@@ -22,10 +25,12 @@ var options = {
 	port : parseInt(args["port"]) || 80,
 	moviesFolder : args["moviesdir"] ? path.resolve(args["moviesdir"]) || path.join(__dirname, "movies") : path.join(__dirname, "movies")	
 };
-if(options.moviesFolder.indexOf("/") > -1 && !options.moviesFolder.endsWith("/"))
-options.moviesFolder += "/";
-if(options.moviesFolder.indexOf("\\") > -1 && !options.moviesFolder.endsWith("\\"))
-options.moviesFolder += "\\";
+if(options.moviesFolder.indexOf("/") > -1 && !options.moviesFolder.endsWith("/")) {
+	options.moviesFolder += "/";
+}
+if(options.moviesFolder.indexOf("\\") > -1 && !options.moviesFolder.endsWith("\\")) {
+	options.moviesFolder += "\\";
+}
 app.set("views", path.join(__dirname, "views"));
 var njk = expressNunjucks(app, {
     watch: false,
@@ -78,11 +83,15 @@ function getRandomInt(min, max) {
 function titleCase(str) {
 	return str.replace(/^[a-z]/, function (x) {return x.toUpperCase()});
 }
+function sortMovies() {
+	movies.sort(function(a, b) {
+		return a.name.localeCompare(b.name);
+	});
+}						
 app.use("/client", express.static(path.join(__dirname, "client")));
 app.get("/", function(req, res) {
 	res.render("index", { movies : movies });
 });
-let router  = express.Router();
 app.get("/play/:movieid", function(req, res) {
 	var movieId = req.params.movieid;
 	var movie = getMovie(movieId);
@@ -206,30 +215,25 @@ chokidar.watch(options.moviesFolder, {ignored: /(^|[\/\\])\../}).on("add", funct
 });
 function listen() {
 	app.listen(options.port, function() {
-	console.log("Movies loaded from '"+options.moviesFolder+"'");
-	console.log("Listening for connections at http://"+ip.address()+(options.port != 80 ? ":"+options.port : ""));
-	console.log("");
-	console.log("-----------------------------");
-	console.log(" How to use:");
-	console.log("-----------------------------");
-	console.log("  1) Copy and paste your movies onto the folder '"+options.moviesFolder+"'");
-	console.log("  2) Open a web browser on a device under the same Wi-Fi network as this device and visit");
-	console.log("       http://"+ip.address()+(options.port != 80 ? ":"+options.port : ""));
-	console.log("  3) Enjoy!");
-	console.log("-----------------------------");
-	console.log("");
-	}).on("error", function(err) {
-	if(err.code == "EADDRINUSE") {
-		options.port = getRandomInt(3000, 5000);
-		if(args["port"])
-		console.log("Error: Port "+args["port"]+" is currently in use or unavailable, now trying port "+options.port);
-		listen();
-	}
-});
+		console.log("Movies loaded from '"+options.moviesFolder+"'");
+		console.log("Listening for connections at http://"+ip.address()+(options.port != 80 ? ":"+options.port : ""));
+		console.log("");
+		console.log("-----------------------------");
+		console.log(" How to use:");
+		console.log("-----------------------------");
+		console.log("  1) Copy and paste your movies onto the folder '"+options.moviesFolder+"'");
+		console.log("  2) Open a web browser on a device under the same Wi-Fi network as this device and visit");
+		console.log("       http://"+ip.address()+(options.port != 80 ? ":"+options.port : ""));
+		console.log("  3) Enjoy!");
+		console.log("-----------------------------");
+		console.log("");
+		}).on("error", function(err) {
+		if(err.code == "EADDRINUSE") {
+			options.port = getRandomInt(3000, 5000);
+			if(args["port"])
+			console.log("Error: Port "+args["port"]+" is currently in use or unavailable, now trying port "+options.port);
+			listen();
+		}
+	});
 }
 listen();
-function sortMovies() {
-	movies.sort(function(a, b) {
-		return a.name.localeCompare(b.name);
-	});
-}						
