@@ -1,22 +1,9 @@
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-var firstTouch = true;
 
 $(window).on("load", function() {
 	var movie = $("#movie").get(0);
-	if(isMobile)
-	{
+	if(isMobile) {
 		$(".display-3").removeClass("display-3").addClass("display-4");
-		$("body").on("click", "#mobile-overlay", function() {
-			movie.play();
-			if (movie.requestFullscreen) {
-				movie.requestFullscreen();
-				} else if (movie.mozRequestFullScreen) {
-				movie.mozRequestFullScreen();
-				} else if (movie.webkitRequestFullscreen) {
-				movie.webkitRequestFullscreen();
-			}
-			$("#mobile-overlay").remove();
-		});
 	}
 	$("body").on("keyup", function(e) {
 		e.preventDefault();
@@ -42,16 +29,12 @@ $(window).on("load", function() {
 	$("#movie-name").click(function() {
 		$(this).stop();
 		$("#overlay").fadeOut(500);
-			if(false)
-				$("body").prepend('<div id="mobile-overlay"></div>');
 			movie.play();
 			$("#main-section").fadeIn(700)
 	});
 	$.when($("#movie-name").delay(650).fadeIn(850)).done(function() {
 		$.when($("#movie-name").delay(1100).fadeOut(550)).done(function() {
 			$("#overlay").fadeOut(500);
-			if(isMobile)
-				$("body").prepend('<div id="mobile-overlay"></div>');
 			movie.play();
 			$("#main-section").fadeIn(700);
 		});
