@@ -1,3 +1,6 @@
+![Wiflix](/img/screenshot.png?raw=true "Wiflix")
+
+
 # Wiflix
 A video-streaming service to stream your movies, your way
 
