@@ -7,7 +7,7 @@ A video-streaming service to stream your movies, your way
 3. Run `npm install`
 4. When finished, run `node wiflix.js`
 
-## Parameters
+## Options
 ```
  --port=80                The port to listen to connections to (automatically randomizes if already in use)
  --moviesdir="./movies"   The directory in which to search for movies
