@@ -1,16 +1,20 @@
+body, html {
+	height: auto;
+	height: 100%;
+	back
+}
 html {
 	background-repeat: repeat-none;
 	height: 100%;
+	/*	background-image: radial-gradient(circle, #06152c, #001622, #001315, #000e07, #050604); */
 	background: #000d1a;
+	
 }
 body {
 	color: #fff;
 	font-family: 'Quicksand', sans-serif;
 	background: transparent;
-}
-body, html {
-	height: auto;
-	height: 100%;
+	
 }
 .half-height {
 	height: 50% !important;
@@ -48,6 +52,7 @@ body, html {
 	display: table;
 	margin: 4px 0;
 }
+
 .movie {
 	border: 1px solid rgba(255, 255, 255, 0.6);
 	text-align: center;
@@ -74,6 +79,7 @@ body, html {
  	width: 4px;
  	background-color: black;
 }
+
 ::-webkit-scrollbar-thumb
 {
  	background-color: white;
@@ -86,7 +92,4 @@ body, html {
 }
 .no-opac {
 	opacity: 0;
-}
-#no-results {
-	text-align: center;
 }

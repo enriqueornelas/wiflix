@@ -1,8 +1,6 @@
 var doneLoading = false;
 var stopAnimating = false;
 var moviesLoaded = 0;
-var query = {}
-location.search.substr(1).split("&").forEach(function(item) {query[item.split("=")[0]] = item.split("=")[1]})
 $(window).on("load", function() {
 	$("#title").fadeIn("slow");
 	$("#sub-title-1").delay(1000).fadeIn(900);
@@ -16,70 +14,36 @@ $(window).on("load", function() {
 	});
 	$("body").on("keyup", "#search", function(e) {
 		var search = $(this).val().toLowerCase().trim();
-		$("#no-results").hide();
-		if(!doneLoading) {
+		if(!doneLoading)
+		{
 			stopAnimating = true;
-			var found = 0;
-			var total = $(".movie").length;
-			var searched = 0;
 			$.when($(".movie-cell").stop().show()).done(function() {
 				doneLoading = true;
 				$(".movie").each(function() {
 					var movieElem = $(this);
-					if(movieElem.text().toLowerCase().indexOf(search) > -1) {
-						movieElem.parent().stop().fadeIn(240);
-						found++;
-					}
+					if(movieElem.text().toLowerCase().indexOf(search) > -1)
+					movieElem.parent().stop().fadeIn(240);
 					else
-						movieElem.parent().stop().fadeOut(200);
-					searched++;
-					if(searched == total) {
-						if(found == 0) {
-							$("#no-results").stop().fadeIn(150);
-						}	
-					}
+					movieElem.parent().stop().fadeOut(200);
 				});
 			});
 		}
 		else {
-			var found = 0;
-			var total = $(".movie").length;
-			var searched = 0;
 			$(".movie").each(function() {
-				if($(this).text().toLowerCase().indexOf(search) > -1) {
-					$(this).parent().stop().fadeIn(240);
-					found++;
-				}
+				if($(this).text().toLowerCase().indexOf(search) > -1)
+				$(this).parent().stop().fadeIn(240);
 				else
-					$(this).parent().stop().fadeOut(200);
-				
-				searched++;
-				if(searched == total) {
-					if(found == 0) {
-						$("#no-results").stop().fadeIn(150);
-					}	
-				}
+				$(this).parent().stop().fadeOut(200);
 			});
 		}
 	});
-	if(window.location.href.indexOf("q=") > -1) {
-		$.when($("#top-holder").stop().hide()).done(function() {
-			showMovies();
-			$(".movie-cell").show().each(function() {
-				$(this).find(".movie").addClass("movie-animation");
-			});
-			$("#search").attr("value", query["q"]).keyup();
-			$(".closing").removeClass("hidden");
-		});
-	}
 	$("body").on("click", "#top-holder", function() {
 		$.when($("#top-holder").stop().fadeOut()).done(function() {
-			showMovies();
+			showMovies()
 		});
 	});
 });
 function showMovies() {
-	$("#mini-title-holder").fadeIn(250);
 	$("body").removeClass("hide-overflow");
 	$("#search, #search-holder").removeClass("hidden").animate({ opacity : 1 }, "slow");
 	$("#movies-holder").show().css("display", "flex");
@@ -96,13 +60,13 @@ function showMovies() {
 				return;
 				$.when(_this.fadeIn(fadeInTime)).done(function() {
 					if(fadeInTime >= fadeInTimeDifference)
-						fadeInTime -= fadeInTimeDifference;
+					fadeInTime -= fadeInTimeDifference;
 					else {
-						fadeInTime = 150;
+						fadeInTime = 250;
 						timeoutMargin = 10;
 					}
 					_this.find(".movie").addClass("movie-animation");
-					moviesLoaded += 1;
+					moviesLoaded+=1;
 					if(moviesLoaded == $(".movie-cell").length)
 					{
 						doneLoading = true;
