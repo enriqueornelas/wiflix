@@ -83,15 +83,15 @@ function listenToDirectory(directory) {
 	});
 }
 
-console.log(" __          ___  __ _ _         __    ___    _____  ");
-console.log(" \\ \\        / (_)/ _| (_)       / /   |__ \\  / _ \\ \\ ");
-console.log("  \\ \\  /\\  / / _| |_| |___  __ | |_   __ ) || | | | |");
-console.log("   \\ \\/  \\/ / | |  _| | \\ \\/ / | \\ \\ / // / | | | | |");
-console.log("    \\  /\\  /  | | | | | |>  <  | |\\ V // /_ | |_| | |");
-console.log("     \\/  \\/   |_|_| |_|_/_/\\_\\ | | \\_/|____(_)___/| |");
-console.log("                                \\_\\              /_/");
-
-console.log("Loading Wiflix v2.0, please wait a moment...");
+console.log(" __          ___  __ _ _         __    __   _____  ");
+console.log(" \\ \\        / (_)/ _| (_)       / /   /_ | / _ \\ \\ ");
+console.log("  \\ \\  /\\  / / _| |_| |___  __ | |_   _| || | | | |");
+console.log("   \\ \\/  \\/ / | |  _| | \\ \\/ / | \\ \\ / / || | | | |");
+console.log("    \\  /\\  /  | | | | | |>  <  | |\\ V /| || |_| | |");
+console.log("     \\/  \\/   |_|_| |_|_/_/\\_\\ | | \\_/ |_(_)___/| |");
+console.log("                                \\_\\            /_/ ");
+console.log("                                                   ");
+console.log("Loading Wiflix v1.0, please wait a moment...");
 
 var args = require("minimist")(process.argv.slice(2), {
 	string : ["port", "moviesdir"]
@@ -202,7 +202,7 @@ function listen() {
 		console.log("-----------------------------");
 		console.log(" How to use:");
 		console.log("-----------------------------");
-		console.log("  1) Copy and paste your movies into one of the following folders: ["+moviesFolders.join(", ")+"]");
+		console.log("  1) Copy and paste your movies onto one of the movie folders");
 		console.log("  2) Open a web browser on a device under the same Wi-Fi network as this device and visit");
 		console.log("       http://"+ip.address()+(options.port != 80 ? ":"+options.port : ""));
 		console.log("  3) Enjoy!");
@@ -219,3 +219,7 @@ function listen() {
 }
 
 listen();
+
+process.on('uncaughtException', function (exception) {
+   console.log(exception);
+});
