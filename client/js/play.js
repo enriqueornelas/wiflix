@@ -1,6 +1,15 @@
 var isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 
 $(window).on("load", function() {
+	$("#search").on("keydown", function(e) {
+		if(e.keyCode == 13) {
+			e.preventDefault();
+			var val = $(this).val().trim();
+			if(val == "")
+				return;
+			window.location.href="../?q="+val;
+		}
+	});
 	var movie = $("#movie").get(0);
 	if(isMobile) {
 		$(".display-3").removeClass("display-3").addClass("display-4");
@@ -29,13 +38,15 @@ $(window).on("load", function() {
 	$("#movie-name").click(function() {
 		$(this).stop();
 		$("#overlay").fadeOut(500);
-			movie.play();
+			if(!isMobile)
+				movie.play();
 			$("#main-section").fadeIn(700)
 	});
 	$.when($("#movie-name").delay(650).fadeIn(850)).done(function() {
 		$.when($("#movie-name").delay(1100).fadeOut(550)).done(function() {
 			$("#overlay").fadeOut(500);
-			movie.play();
+			if(!isMobile)
+				movie.play();
 			$("#main-section").fadeIn(700);
 		});
 	});
