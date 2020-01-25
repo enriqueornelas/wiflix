@@ -112,9 +112,9 @@ for(var ind in moviesFolders) {
 }
 moviesFolders = moviesFolders.filter(onlyUnique);
 
-for(var ind in moviesFolders) {
+for(var ind in moviesFolders)
 	listenToDirectory(moviesFolders[ind]);
-}
+	
 var options = {
 	port : parseInt(args["port"]) || 80,
 	moviesFolders : moviesFolders
