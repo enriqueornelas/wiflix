@@ -12,8 +12,8 @@ A video-streaming service to stream your movies, your way
 
 ### Parameters
 ```
- --port 80                Port to listen to connections to (automatically randomizes if already in use)
- --moviesdir "C:/path/to/movies/"   An additional directory to search for movies
+ --port 80                          Port to listen to connections to (automatically randomizes if already in use)
+ --moviesdir "C:/path/to/movies/"   Additional directory to search for movies in
 ```
 
 ### Notes
