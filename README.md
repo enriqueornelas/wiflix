@@ -17,4 +17,4 @@ A video-streaming service to stream your movies, your way
 ```
 
 ### Notes
-On Linux, run `sudo node wifix.js` to allow for HTTP-server-related permissions to be allowed
+On Linux, run `sudo node wifix.js` to allow for server-related permissions to be allowed
