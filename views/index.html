@@ -1,55 +1,55 @@
 <html>
-	<head>
-		<title>Home | Wiflix</title>
-		<meta name="viewport" content="width=device-width">
-		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-		<link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
-		<link href="client/css/bootstrap.min.css" rel="stylesheet">
-		<link href="client/css/index.css" rel="stylesheet">
-	</head>
-
-		<div class="container">
-			<div class="row full-height hidden" id="mini-title-holder">
-				<div class="col-lg-12 text-center" id="mini-title">
-					<h1 class="mt-5">Wiflix</h1>
-				</div>
-			</div>
-			<div class="row full-screen" id="top-holder">
-				<div class="col-lg-12 half-height text-center middle">
-					<h1 class="mt-5 display-3" style="display: none" id="title">Wiflix</h1>
-					<h4><span id="sub-title-1" style="display: none">Your movies</span><span id="sub-title-2" style="display: none">, streamed your way</span></h4>
-				</div>
-			</div>
-			<div class="row" id="movies-holder">
-				<div class="col-md-3"></div>
-				<div class="col-md-6"><br>
-					<div class="input-group mb-8 hidden" id="search-holder">
-						<input id="search" type="text" class="form-control hidden no-opac" placeholder="Search"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-					</div><br>
-				</div>
-				<div class="col-md-3"></div>
-				<div class="col-md-12">
-					<p id="no-results" style="display: none">No results</p>
-				</div>
-				{% for movie in movies %}
-				<div class="col-md-4 movie-cell movie-holder" style="display: none" data-movie-id="{{ movie.id }}">
-					<div class="movie">{{ movie.name }}</div>
-				</div>
-				{% endfor %}				
-			</div>
-			
-			<br class="closing hidden">
-			<center class="closing hidden">
-				<p class="closing hidden">&nbsp; Wiflix &copy; <script>document.write(new Date().getFullYear());</script>
-					<br>
-					<a href="https://github.com/enriqueornelasjr/wiflix"><i class="fab fa-github" style="font-size: 25px; margin-top: 9px"></i></a>
-				</p>
-				<br class="closing hidden">
-				
-			</center>
-		</div>
-	</body>
-	<script src="client/js/jquery.min.js"></script>
-	<script src="client/js/bootstrap.bundle.min.js"></script>
-	<script src="client/js/index.js"></script>
-</html>		
+   <head>
+      <title>Home | Wiflix</title>
+      <meta name="viewport" content="width=device-width">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+      <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+      <link href="client/css/bootstrap.min.css" rel="stylesheet">
+      <link href="client/css/index.css" rel="stylesheet">
+   </head>
+   <div class="container">
+      <div class="row full-height hidden" id="mini-title-holder">
+         <div class="col-lg-12 text-center" id="mini-title">
+            <h1 class="mt-5">Wiflix</h1>
+         </div>
+      </div>
+      <div class="row full-screen" id="top-holder">
+         <div class="col-lg-12 half-height text-center middle">
+            <h1 class="mt-5 display-3" style="display: none" id="title">Wiflix</h1>
+            <h4><span id="sub-title-1" style="display: none">Your movies</span><span id="sub-title-2" style="display: none">, streamed your way</span></h4>
+         </div>
+      </div>
+      <div class="row" id="movies-holder">
+         <div class="col-md-3"></div>
+         <div class="col-md-6">
+            <br>
+            <div class="input-group mb-8 hidden" id="search-holder">
+               <input id="search" type="text" class="form-control hidden no-opac" placeholder="Search"  autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
+            </div>
+            <br>
+         </div>
+         <div class="col-md-3"></div>
+         <div class="col-md-12">
+            <p id="no-results" style="display: none">No results</p>
+         </div>
+         {% for movie in movies %}
+         <div class="col-md-4 movie-cell movie-holder" style="display: none" data-movie-id="{{ movie.id }}">
+            <div class="movie">{{ movie.name }}</div>
+         </div>
+         {% endfor %}				
+      </div>
+      <br class="closing hidden">
+      <center class="closing hidden">
+         <p class="closing hidden">
+            &nbsp; Wiflix &copy; <script>document.write(new Date().getFullYear());</script>
+            <br>
+            <a href="https://github.com/enriqueornelasjr/wiflix"><i class="fab fa-github" style="font-size: 25px; margin-top: 9px"></i></a>
+         </p>
+         <br class="closing hidden">
+      </center>
+   </div>
+   </body>
+   <script src="client/js/jquery.min.js"></script>
+   <script src="client/js/bootstrap.bundle.min.js"></script>
+   <script src="client/js/index.js"></script>
+</html>
